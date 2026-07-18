@@ -5,18 +5,28 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+:root{
+    --black-color:#060714;
+    --primary-color:#1d2158;
+    --secondary-color:#2b3063;
+    --tertiary-color:#5f9bcc;
+}
+
 body{
-    background:#121212;
+    background: var(--primary-color);
     color:white;
     display:flex;
-    justify-content:center;
+    justify-content:left;
     align-items:center;
     height:100vh;
+    padding-left: 2vh;
+    gap: 2vh;
 }
 
 .player{
-    width:420px;
-    background:#1e1e1e;
+    width:152vh;
+    height: 90vh;
+    background: var(--secondary-color);
     border-radius:20px;
     padding:25px;
     box-shadow:0 0 30px rgba(0,0,0,.5);
@@ -31,8 +41,16 @@ h2{
     font-size:20px;
     text-align:center;
     margin-bottom:15px;
-    color:#1db954;
+    color:var(--tertiary-color);
 }
+
+.musicName-style{
+    font-size:20px;
+    text-align:center;
+    margin-bottom:15px;
+    color:var(--tertiary-color);
+}
+
 
 .progress-container{
     width:100%;
@@ -46,7 +64,7 @@ h2{
 .progress{
     width:0%;
     height:100%;
-    background:#1db954;
+    background: var(--tertiary-color);
     border-radius:10px;
 }
 
@@ -66,7 +84,7 @@ h2{
 }
 
 button{
-    background:#1db954;
+    background: var(--tertiary-color);
     border:none;
     color:white;
     width:55px;
@@ -89,6 +107,15 @@ input[type=range]{
     width:100%;
 }
 
+.playlist-player{
+    width:350px;
+    height: 90vh;
+    background: var(--secondary-color);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
 .playlist{
     margin-top:20px;
     max-height:220px;
@@ -106,5 +133,5 @@ input[type=range]{
 }
 
 .active{
-    background:#1db954 !important;
+    background:var(--tertiary-color) !important;
 }
