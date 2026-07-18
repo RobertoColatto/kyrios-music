@@ -139,4 +139,4 @@ function searchMusic(playlist, searchStr) {
     }
 }
 
-searchMusic(playlist, "Músca")
+searchMusic(playlist, "Digno")
