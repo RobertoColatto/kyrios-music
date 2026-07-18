@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meu Reprodutor de Música</title>
-<link rel="stylesheet" href="style.css">
-</head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Reprodutor de Música</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
 <body>
 
-<div class="player">
+    <div class="player">
 
-<h2>🎵 Meu Player</h2>
+        <h2>🎵 Meu Player</h2>
 
-<div id="musicName">Carregando...</div>
+        <div id="musicName">Carregando...</div>
 
-<div class="progress-container" id="progressContainer">
-<div class="progress" id="progress"></div>
-</div>
+        <div class="progress-container" id="progressContainer">
+            <div class="progress" id="progress"></div>
+        </div>
 
-<div class="time">
-<span id="current">0:00</span>
-<span id="duration">0:00</span>
-</div>
+        <div class="time">
+            <span id="current">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
 
-<div class="controls">
-<button onclick="previous()">⏮</button>
-<button onclick="playPause()" id="playBtn">▶</button>
-<button onclick="next()">⏭</button>
-</div>
+        <div class="controls">
+            
+            <button onclick="previous()">⏮</button>
+            <button onclick="playPause()" id="playBtn">▶</button>
+            <button onclick="next()">⏭</button>
+            
+    </div>
 
-<div class="volume">
-Volume
-<input type="range" min="0" max="1" step="0.01" value="1" id="volume">
-</div>
+    <div class="volume">
+    Volume
+        <input type="range" min="0" max="1" step="0.01" value="1" id="volume">
+    </div>
 
-<div class="playlist" id="playlist"></div>
+    <div class="playlist" id="playlist"></div>
 
-<audio id="audio"></audio>
+    <audio id="audio"></audio>
 
-</div>
+    </div>
 
-<script src="playlist.js"></script>
-<script src="script.js"></script>
+    <script src="playlist.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
