@@ -107,26 +107,32 @@ volume.addEventListener("input",()=>{
 
 });
 
-playlist.forEach((music,index)=>{
+function renderPlaylist(lista) {
 
-    const item=document.createElement("div");
+    playlistDiv.innerHTML = "";
 
-    item.innerHTML=music.title;
+    lista.forEach((music) => {
 
-    item.onclick=()=>{
+        const item = document.createElement("div");
 
-        currentMusic=index;
-        loadMusic(index);
-        audio.play();
-        playBtn.innerHTML="⏸";
+        item.innerHTML = music.title;
 
-    };
+        item.onclick = () => {
 
-    playlistDiv.appendChild(item);
+            const indexOriginal = playlist.indexOf(music);
 
-});
+            currentMusic = indexOriginal;
+            loadMusic(indexOriginal);
+            audio.play();
+            playBtn.innerHTML = "⏸";
 
-loadMusic(currentMusic);
+        };
+
+        playlistDiv.appendChild(item);
+
+    });
+
+}
 
 //função auxiliar pra ignorar acentos
 function matchIgnoringAccents(str1, str2) {
@@ -139,15 +145,24 @@ function searchMusic(playlist, searchStr) {
     const results = []
     for(const item of playlist) {
         for(const key in item) {
-            //if(key == "title" && item[key].toLowerCase().includes(searchStr.toLowerCase())) {
             if(key == "title" && matchIgnoringAccents(item[key], searchStr)) {
-                //console.log(item[key]);
-                results.push(item[key]);
+                results.push(item);
             }
         }
     }
-    return results
+    return results;
 }
 
-r = searchMusic(playlist, "")
-console.log(r)
+const searchBar = document.getElementById("searchBar");
+const searchStr = "";
+searchBar.addEventListener("input", function(event) {
+    const searchStr = event.target.value;
+    if(searchStr == "") {
+        renderPlaylist(playlist);
+    } else {
+        renderPlaylist(searchMusic(playlist, searchStr));
+    }
+});
+
+renderPlaylist(playlist);
+loadMusic(currentMusic);
